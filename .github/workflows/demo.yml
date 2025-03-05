@@ -10,7 +10,7 @@ jobs:
        - name: Download code
          uses: actions/checkout@v4
        - name: Install dependencies
-         run: npm run ci
+         run: npm ci
        - name: Run code linting
          run: npm run lint
        - name: Test the code
@@ -22,7 +22,7 @@ jobs:
       - name: Download code
         uses: actions/checkout@v4
       - name: install dependenvies
-        run: npm run ci
+        run: npm ci
       - name: Build the system
         run: npm run build
       - name: Upload artifact
