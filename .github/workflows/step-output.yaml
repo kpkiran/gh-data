@@ -18,10 +18,10 @@ jobs:
 
       - name: set output2
         id: set_output2
-        run: echo "Salary=3000" >> $GUTHUB_OUTPUT
+        run: echo "salary=3000" >> $GUTHUB_OUTPUT
 
       - name: access output
         run: |
           echo "The name of the candidate is ${{ steps.set_output.outputs.name }}"
           echo "The value of age is ${{ steps.set_output.outputs.age }}"
-          echo "The value of salary is ${{ steps.set_output2.outputs.age }}"
+          echo "The value of salary is ${{ steps.set_output2.outputs.salary }}"
