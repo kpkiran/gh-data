@@ -18,7 +18,7 @@ jobs:
 
       - name: set output2
         id: set_output2
-        run: echo "salary=3000" >> $GUTHUB_OUTPUT
+        run: echo "salary=3000" >> $GITHUB_OUTPUT
 
       - name: access output
         run: |
