@@ -23,4 +23,4 @@ jobs:
         run: |
           echo "My name is - ${{steps.set_output1.outputs.name}}"
           echo "My age is - ${{steps.set_output1.outputs.age}}"
-          echo "My salary is - ${{step.set_output2.outputs.salary}}"
+          echo "My salary is - ${{steps.set_output2.outputs.salary}}"
