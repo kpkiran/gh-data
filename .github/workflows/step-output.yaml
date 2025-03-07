@@ -7,21 +7,9 @@ on:
 jobs:
   job1:
     runs-on: ubuntu-latest
-
-    steps:
-      - name: set output
-        id: set_output
-        shell: bash
-        run: |
-          echo "name=Ravikiran Padki" >> $GITHUB_OUTPUT
-          echo "age=20" >> $GITHUB_OUTPUT
-
-      - name: set output2
-        id: set_output2
-        run: echo "salary=3000" >> $GITHUB_OUTPUT
-
-      - name: access output
-        run: |
-          echo "The name of the candidate is ${{ steps.set_output.outputs.name }}"
-          echo "The value of age is ${{ steps.set_output.outputs.age }}"
-          echo "The value of salary is ${{ steps.set_output2.outputs.salary }}"
+  
+  steps:
+    - name: set output
+      bash: shell
+      run: echo "age=23" >> $GITHUB_OUTPUT
+    
