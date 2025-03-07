@@ -9,5 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: set output 1
+        id: set_output1
         shell: bash
         run: echo "age=23" >> $GITHUB_OUTPUT
+
+      - name: access output
+        run: echo ${{steps.set_output1.outputs.age}}
