@@ -1,26 +1,25 @@
-name: Job Output
+name: Job output
 on:
   push:
     branches: [main]
 
 jobs:
   job1:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-linux
     outputs:
       job1_name: ${{steps.step_output.outputs.name}}
 
     steps:
       - name: step-output
         id: step_output
-        run: echo "name=ravikiran" >> $GITHUB_OUTPUT
+        run: echo "name:ravikiranpadki" >> $GITHUB_OUTPUT
 
       - name: access-output
         run: echo "The value of name is ${{steps.step_output.outputs.name}}"
 
   job2:
-    needs: job1
     runs-on: ubuntu-latest
-
+    needs: job1
     steps:
       - name: access-output
-        run: echo "Value of Job2 is ${{needs.job1.outputs.job1_name}}"
+        run: ${{needs.job1.outputs.job1_name}}        
