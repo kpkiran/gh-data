@@ -5,7 +5,7 @@ on:
 
 jobs:
   job1:
-    runs-on: ubuntu-linux
+    runs-on: ubuntu-latest
     outputs:
       job1_name: ${{steps.step_output.outputs.name}}
 
