@@ -1,7 +1,6 @@
 name: Job output
 on:
-  push:
-    branches: [main]
+  workflow_dispatch:
 
 jobs:
   job1:
@@ -22,4 +21,4 @@ jobs:
     needs: job1
     steps:
       - name: access-output
-        run: ${{needs.job1.outputs.job1_name}}        
+        run: "Value of output name is ${{needs.job1.outputs.job1_name}}"        
