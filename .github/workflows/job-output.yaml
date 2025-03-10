@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: step-output
         id: step_output
-        run: echo "name:ravikiranpadki" >> $GITHUB_OUTPUT
+        run: echo "name=ravikiranpadki" >> $GITHUB_OUTPUT
 
       - name: access-output
         run: echo "The value of name is ${{steps.step_output.outputs.name}}"
