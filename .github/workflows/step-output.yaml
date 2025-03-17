@@ -8,19 +8,9 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - name: set output 1
-        id: set_output1
-        shell: bash
-        run: |
-          echo "name=ravikiran" >> $GITHUB_OUTPUT
-          echo "age=23" >> $GITHUB_OUTPUT
+      - name: step-output
+        id: step_output
+        run: echo "name=ravikiran" >> $GITHUB_OUTPUT
 
-      - name: set output 2
-        id: set_output2
-        run: echo "salary=1300" >> $GITHUB_OUTPUT
-
-      - name: access output
-        run: |
-          echo "My name is - ${{steps.set_output1.outputs.name}}"
-          echo "My age is - ${{steps.set_output1.outputs.age}}"
-          echo "My salary is - ${{steps.set_output2.outputs.salary}}"
+      - name: step-access
+        run: echo "{{ steps.step_output.outputs.name }}"
