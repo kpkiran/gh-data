@@ -1,27 +1,27 @@
-name: Step Output
-
+name: Job Output
 on:
-  push:
-    branches: [main]
+    push:
+        branches: [main]
 
 jobs:
-  job1:
-    runs-on: ubuntu-latest
-    steps:
-      - name: step-output1
-        id: step_output1
-        run: |
-          echo "name=ravikiran" >> $GITHUB_OUTPUT
-          echo "age=29" >> $GITHUB_OUTPUT
-      
-      - name: step-output2
-        id: step_output2
-        run: echo "salary=3000" >> $GITHUB_OUTPUT
+    jobs1:
+        runs-on: ubuntu-latest
+        outputs:
+            example_output: ${{ steps.set_output.outputs.example }}
+        steps:
+            - name: job-output1
+              id: job_output
+              run: echo "name=ravikiranpadki" >> @GITHUB_OUTPUT
 
-      - name: step-access
-        run: |
-          echo "My name is ${{ steps.step_output1.outputs.name }}"
-          echo "My age is ${{ steps.step_output1.outputs.age }}"
-          echo "My Salary is ${{ steps.step_output2.outputs.salary }}"
-        
-        
+            - name: job-output2
+              run: echo "age=30" >> $GITHUB_OUTPUT
+              
+    jobs2:
+        needs: jobs1
+        runs-on: ubuntu-latest
+        steps:
+            - name: access_outputjob
+              run: |
+                echo "Value of name is {{needs.jobs1.outputs.job_output1}}"
+                echo "Value of age is {{needs.jobs1.outputs.job_output2}}"
+    
