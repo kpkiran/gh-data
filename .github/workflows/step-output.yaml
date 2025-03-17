@@ -12,7 +12,7 @@ jobs:
         id: step_output1
         run: |
           echo "name=ravikiran" >> $GITHUB_OUTPUT
-          echo: "age=29" >> $GITHUB_OUTPUT
+          echo "age=29" >> $GITHUB_OUTPUT
       
       - name: step-output2
         id: step_output2
