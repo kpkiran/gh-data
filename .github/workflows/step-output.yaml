@@ -13,4 +13,4 @@ jobs:
         run: echo "name=ravikiran" >> $GITHUB_OUTPUT
 
       - name: step-access
-        run: echo "{{ steps.step_output.outputs.name }}"
+        run: echo ${{ steps.step_output.outputs.name }}
