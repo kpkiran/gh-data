@@ -13,8 +13,8 @@ jobs:
         - name: job-output1
           id: job_output1
           run: |
-            echo "First Name:Ravikiran" >> $GITHUB_OUTPUT
-            echo "Last Name:Padki" >> $GITHUB_OUTPUT
+            echo "FirstName:Ravikiran" >> $GITHUB_OUTPUT
+            echo "LastName:Padki" >> $GITHUB_OUTPUT
         
         - name: job-output2
           id: job_output2
