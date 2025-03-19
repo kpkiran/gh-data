@@ -13,14 +13,14 @@ jobs:
         - name: job-output1
           id: job_output1
           run: |
-            echo "FirstName:Ravikiran" >> $GITHUB_OUTPUT
-            echo "LastName:Padki" >> $GITHUB_OUTPUT
+            echo "FirstName=Ravikiran" >> $GITHUB_OUTPUT
+            echo "LastName=Padki" >> $GITHUB_OUTPUT
         
         - name: job-output2
           id: job_output2
           run: |
-            echo "City:Bangalore" >> $GITHUB_OUTPUT
-            echo "Country:India" >> $GITHUB_OUTPUT
+            echo "City=Bangalore" >> $GITHUB_OUTPUT
+            echo "Country=India" >> $GITHUB_OUTPUT
     
     job2:
         needs: job1
