@@ -1,0 +1,32 @@
+name: Jobs Output
+
+on:
+    workflow_dispatch:
+
+jobs:
+    job1:
+        runs-on: ubuntu-latest
+        outputs:
+            job1_name: ${{ steps.job_output1.outputs.name }}
+            job1_city: ${{ steps.job_output2.outputs.city }}
+        steps:
+        - name: job-output1
+          id: job_output1
+          run: |
+            echo "First Name:Ravikiran" >> $GITHUB_OUTPUT
+            echo "Last Name:Padki" >> $GITHUB_OUTPUT
+        
+        - name: job-output2
+          id: job_output2
+          run: |
+            echo "City:Bangalore" >> $GITHUB_OUTPUT
+            echo "Country:India" >> $GITHUB_OUTPUT
+    
+    job2:
+        needs: job1
+        runs-on: ubuntu-latest
+        steps:
+        - name: access-job-output
+          run: | 
+            echo "First Name: ${{needs.job1.outputs.job1_name}}"
+            echo "City: ${{ needs.job1.outputs.job1_city }}"
